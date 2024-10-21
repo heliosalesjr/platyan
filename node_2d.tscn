@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dymberbgigfcj"]
+
+[ext_resource type="Texture2D" uid="uid://4haydtobn7ng" path="res://icon.svg" id="1_sv4p6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql288"]
+size = Vector2(1178, 89)
+
+[node name="Node2D" type="Node2D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
+script = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(579, 651.5)
+shape = SubResource("RectangleShape2D_ql288")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(3.05176e-05, -3.49999)
+scale = Vector2(9.23438, 0.703125)
+texture = ExtResource("1_sv4p6")
