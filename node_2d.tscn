@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dymberbgigfcj"]
+[gd_scene load_steps=5 format=3 uid="uid://dymberbgigfcj"]
 
 [ext_resource type="Texture2D" uid="uid://4haydtobn7ng" path="res://icon.svg" id="1_sv4p6"]
-[ext_resource type="PackedScene" uid="uid://dp8uedbml4duv" path="res://Scenes/player.tscn" id="2_jr3t1"]
+[ext_resource type="PackedScene" uid="uid://dp8uedbml4duv" path="res://Scenes/Characters/Pirate.tscn" id="2_jr3t1"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="3_b2acc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ql288"]
 size = Vector2(1178, 89)
@@ -19,5 +20,8 @@ position = Vector2(3.05176e-05, -3.49999)
 scale = Vector2(9.23438, 0.703125)
 texture = ExtResource("1_sv4p6")
 
-[node name="Player" parent="." instance=ExtResource("2_jr3t1")]
+[node name="Pirate" parent="." instance=ExtResource("2_jr3t1")]
 position = Vector2(492, 563)
+
+[node name="Player" type="Node" parent="Pirate"]
+script = ExtResource("3_b2acc")
