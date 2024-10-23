@@ -25,3 +25,7 @@ position = Vector2(589, 537)
 
 [node name="Player" type="Node" parent="Pirate"]
 script = ExtResource("3_b2acc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(583, 538)
+zoom = Vector2(3, 3)
