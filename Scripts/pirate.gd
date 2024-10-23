@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var _sprite: Sprite2D = $Sprite2D
 
 @export_category("Locomotion")
 @export var _speed : float = 8
@@ -24,10 +25,10 @@ func _ready():
 #region public methods
 
 func face_left():
-	pass
+	_sprite.flip_h = true
 
 func face_right():
-	pass
+	_sprite.flip_h = false
 	
 func run(direction: float):
 	_direction = direction
@@ -43,6 +44,10 @@ func stop_jump():
 #endregion
 
 func _physics_process(delta):
+	if sign(_direction) == -1:
+		face_left()
+	elif sign(_direction) == 1:
+		face_right()
 	if is_on_floor():
 		_ground_physics(delta)
 	else:
