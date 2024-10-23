@@ -22,6 +22,8 @@ texture = ExtResource("1_sv4p6")
 
 [node name="Pirate" parent="." instance=ExtResource("2_jr3t1")]
 position = Vector2(492, 563)
+_acceleration = 600.0
+_deceleration = 1200.0
 
 [node name="Player" type="Node" parent="Pirate"]
 script = ExtResource("3_b2acc")

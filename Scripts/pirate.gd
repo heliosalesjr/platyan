@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+@export var _speed : float = 300.0
+@export var _acceleration : float = 300
+@export var _deceleration : float = 300
 const JUMP_VELOCITY = -400.0
 
 var _direction : float
@@ -27,9 +29,11 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if _direction:
-		velocity.x = _direction * SPEED
+	if _direction == 0:
+		velocity.x = move_toward(velocity.x, 0, -_deceleration * delta)
+	elif velocity.x == 0 || sign(_direction) == sign(velocity.x):
+		velocity.x = move_toward(velocity.x, _direction * _speed, _acceleration * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, _direction * _speed, _deceleration * delta)
 
 	move_and_slide()
