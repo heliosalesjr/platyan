@@ -1,10 +1,12 @@
 extends Node
 
-@onready var _pirate: CharacterBody2D = get_parent()
+@onready var _character: CharacterBody2D = get_parent()
 
 func _input(event : InputEvent) :
 	if event.is_action_pressed("jump"):
-		_pirate.jump()
+		_character.jump()
+	if event.is_action_released("jump"):
+		_character.stop_jump()
 
 func _process(_delta: float):
-	_pirate.run(Input.get_axis("run_left", "run_right"))
+	_character.run(Input.get_axis("run_left", "run_right"))
