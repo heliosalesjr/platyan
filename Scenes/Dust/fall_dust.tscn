@@ -10,7 +10,7 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_iooho"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("1_yyiek")
 }, {
 "duration": 1.0,
@@ -24,6 +24,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_x2k8w")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"default",
