@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export_category("Jump")
 @export var _jump_height : float = 2.5
 @export var _air_control : float = 0.5
+@export var _jump_dust : PackedScene
 var _jump_velocity : float
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -36,6 +37,7 @@ func run(direction: float):
 func jump():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = _jump_velocity
+		_spawn_dust(_jump_dust)
 
 func stop_jump():
 	if velocity.y < 0:
@@ -67,3 +69,8 @@ func _air_physics(delta : float):
 	if _direction > 0 || _direction <0:
 		velocity.x = move_toward(velocity.x, _direction * _speed, _acceleration * _air_control * delta)
 	
+func _spawn_dust(dust : PackedScene):
+	var _dust = dust.instantiate()
+	_dust.position = position
+	_dust.flip_h = _sprite.flip_h
+	get_parent().add_child(_dust)
