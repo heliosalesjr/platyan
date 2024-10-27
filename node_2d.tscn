@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dymberbgigfcj"]
+[gd_scene load_steps=10 format=3 uid="uid://dymberbgigfcj"]
 
 [ext_resource type="PackedScene" uid="uid://dp8uedbml4duv" path="res://Scenes/Characters/Pirate.tscn" id="2_jr3t1"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_b2acc"]
 [ext_resource type="Texture2D" uid="uid://42ea7rm0bjuh" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="4_g56ax"]
 [ext_resource type="Texture2D" uid="uid://deg4y6a835qsw" path="res://assets/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="4_kef76"]
 [ext_resource type="PackedScene" uid="uid://ha0oak4ved58" path="res://Scenes/palm_tree.tscn" id="5_bhllp"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="6_2b5ub"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g3fys"]
 texture = ExtResource("4_kef76")
@@ -411,15 +412,18 @@ sources/1 = SubResource("TileSetAtlasSource_vim68")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
+position = Vector2(583, 538)
+zoom = Vector2(3, 3)
+script = ExtResource("6_2b5ub")
+_subject = NodePath("../Pirate")
+_offset = Vector2(2, -1)
+
 [node name="Pirate" parent="." instance=ExtResource("2_jr3t1")]
 position = Vector2(589, 537)
 
 [node name="Player" type="Node" parent="Pirate"]
 script = ExtResource("3_b2acc")
-
-[node name="Camera2D" type="Camera2D" parent="Pirate"]
-position = Vector2(-6, 1)
-zoom = Vector2(3, 3)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ojat0")
@@ -444,3 +448,6 @@ position = Vector2(463, 565)
 
 [node name="Palm Tree5" parent="." instance=ExtResource("5_bhllp")]
 position = Vector2(366, 562)
+
+[connection signal="changed_direction" from="Pirate" to="Camera2D" method="_on_pirate_changed_direction"]
+[connection signal="landed" from="Pirate" to="Camera2D" method="_on_pirate_landed"]
