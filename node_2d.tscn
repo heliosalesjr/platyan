@@ -414,12 +414,10 @@ sources/1 = SubResource("TileSetAtlasSource_vim68")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
 position = Vector2(583, 538)
-offset = Vector2(32, 0)
 zoom = Vector2(3, 3)
 script = ExtResource("6_2b5ub")
 _subject = NodePath("../Pirate")
 _offset = Vector2(2, -1)
-_duration = 3.0
 
 [node name="Pirate" parent="." instance=ExtResource("2_jr3t1")]
 position = Vector2(589, 537)
