@@ -449,5 +449,15 @@ position = Vector2(463, 565)
 [node name="Palm Tree5" parent="." instance=ExtResource("5_bhllp")]
 position = Vector2(366, 562)
 
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="BG"]
+
+[node name="Parallax2D2" type="Parallax2D" parent="BG"]
+
+[node name="Parallax2D3" type="Parallax2D" parent="BG"]
+
+[node name="Parallax2D4" type="Parallax2D" parent="BG"]
+
 [connection signal="changed_direction" from="Pirate" to="Camera2D" method="_on_pirate_changed_direction"]
 [connection signal="landed" from="Pirate" to="Camera2D" method="_on_pirate_landed"]
