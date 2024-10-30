@@ -451,6 +451,7 @@ position = Vector2(463, 565)
 position = Vector2(366, 562)
 
 [node name="BG" parent="." instance=ExtResource("7_y4ury")]
+position = Vector2(228, 178)
 
 [connection signal="changed_direction" from="Pirate" to="Camera2D" method="_on_pirate_changed_direction"]
 [connection signal="landed" from="Pirate" to="Camera2D" method="_on_pirate_landed"]
