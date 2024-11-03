@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dymberbgigfcj"]
+[gd_scene load_steps=12 format=3 uid="uid://dymberbgigfcj"]
 
 [ext_resource type="PackedScene" uid="uid://dp8uedbml4duv" path="res://Scenes/Characters/Pirate.tscn" id="2_jr3t1"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_b2acc"]
@@ -7,12 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ha0oak4ved58" path="res://Scenes/palm_tree.tscn" id="5_bhllp"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_2b5ub"]
 [ext_resource type="PackedScene" uid="uid://dk3jw3f8j7grt" path="res://Scenes/bg.tscn" id="7_y4ury"]
-[ext_resource type="Script" path="res://Scripts/water.gd" id="8_um6l6"]
-[ext_resource type="Texture2D" uid="uid://b8m2gir044epv" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="9_6edus"]
-[ext_resource type="Texture2D" uid="uid://eyqojpqywc3u" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="10_og3yy"]
-[ext_resource type="Texture2D" uid="uid://ccmnkyacpkffb" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/3.png" id="11_o4u1m"]
-[ext_resource type="Texture2D" uid="uid://dy3eivepqrp6x" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/4.png" id="12_cg0r1"]
-[ext_resource type="Texture2D" uid="uid://cfrk50e1i75t" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="13_3m3wh"]
+[ext_resource type="PackedScene" uid="uid://duwi07ypqixy8" path="res://Scenes/water.tscn" id="8_08dvk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g3fys"]
 texture = ExtResource("4_kef76")
@@ -417,30 +412,6 @@ terrain_set_1/mode = 0
 sources/0 = SubResource("TileSetAtlasSource_g3fys")
 sources/1 = SubResource("TileSetAtlasSource_vim68")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_i7xbd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_6edus")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_og3yy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_o4u1m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_cg0r1")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_j85gj"]
-a = Vector2(96, 0)
-b = Vector2(1, 1)
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
@@ -484,28 +455,8 @@ position = Vector2(366, 562)
 visible = false
 position = Vector2(228, 178)
 
-[node name="Water" type="Area2D" parent="."]
-z_index = 3
-script = ExtResource("8_um6l6")
-
-[node name="Surface" type="Node2D" parent="Water"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Water/Surface"]
-position = Vector2(-30, 847)
-sprite_frames = SubResource("SpriteFrames_i7xbd")
-autoplay = "default"
-frame_progress = 0.335836
-offset = Vector2(48, 0)
-
-[node name="Botton" type="Sprite2D" parent="Water/Surface"]
-position = Vector2(18, 879)
-texture = ExtResource("13_3m3wh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
-position = Vector2(-30, 847)
-shape = SubResource("SegmentShape2D_j85gj")
+[node name="Water" parent="." instance=ExtResource("8_08dvk")]
+position = Vector2(2, 615)
 
 [connection signal="changed_direction" from="Pirate" to="Camera2D" method="_on_pirate_changed_direction"]
 [connection signal="landed" from="Pirate" to="Camera2D" method="_on_pirate_landed"]
-[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
-[connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]

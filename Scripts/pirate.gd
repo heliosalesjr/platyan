@@ -125,7 +125,7 @@ func _water_physics(delta : float):
 	else:
 		velocity.x = move_toward(velocity.x, _direction * _speed, _acceleration * _drag * delta)
 	if _is_below_surface || _density > 0:
-		velocity.y = move_toward(velocity.y, gravity * _density *_drag, gravity * _drag * delta )
+		velocity.y = move_toward(velocity.y, gravity * _density * _drag, gravity * _drag * delta )
 	elif position.y - float(Global.ppt) / 4 < _water_surface_height:
 		velocity.y = move_toward(velocity.y, gravity * _density *_drag, gravity * _drag * delta )
 	else:

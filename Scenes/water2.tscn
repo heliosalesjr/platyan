@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://da0p7a1gcdm8d"]
+
+[ext_resource type="Script" path="res://Scripts/water.gd" id="1_xofk6"]
+[ext_resource type="Texture2D" uid="uid://b8m2gir044epv" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="2_rnrfd"]
+[ext_resource type="Texture2D" uid="uid://eyqojpqywc3u" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="3_7ghwt"]
+[ext_resource type="Texture2D" uid="uid://ccmnkyacpkffb" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/3.png" id="4_cdw3c"]
+[ext_resource type="Texture2D" uid="uid://dy3eivepqrp6x" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/4.png" id="5_fq8sj"]
+[ext_resource type="Texture2D" uid="uid://cfrk50e1i75t" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="6_kivgd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7xbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rnrfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7ghwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cdw3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fq8sj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j85gj"]
+a = Vector2(96, 0)
+b = Vector2(1, 1)
+
+[node name="Water" type="Area2D"]
+z_index = 3
+script = ExtResource("1_xofk6")
+
+[node name="Surface" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Surface"]
+position = Vector2(-30, 847)
+sprite_frames = SubResource("SpriteFrames_i7xbd")
+autoplay = "default"
+frame_progress = 0.335836
+offset = Vector2(48, 0)
+
+[node name="Botton" type="Sprite2D" parent="Surface"]
+position = Vector2(18, 879)
+texture = ExtResource("6_kivgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-30, 847)
+shape = SubResource("SegmentShape2D_j85gj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

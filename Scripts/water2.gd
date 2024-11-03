@@ -3,7 +3,7 @@ extends Area2D
 @export var _splash : PackedScene
 
 func _spawn_splash(x : float):
-	if _splash:  # Verificação mínima
+	if _splash:
 		var splash = _splash.instantiate()
 		add_child(splash)
 		splash.global_position.x = x
@@ -20,7 +20,3 @@ func _on_body_exited(body: Node2D) -> void:
 			_spawn_splash(body.position.x)
 		else:
 			body.dive()
-
-
-
-	
