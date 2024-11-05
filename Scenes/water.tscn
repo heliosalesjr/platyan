@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://duwi07ypqixy8"]
 
-[ext_resource type="Script" path="res://Scripts/water2.gd" id="1_7kr6i"]
+[ext_resource type="Script" path="res://Scripts/water.gd" id="1_7kr6i"]
 [ext_resource type="Texture2D" uid="uid://b8m2gir044epv" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="2_rnrfd"]
 [ext_resource type="Texture2D" uid="uid://eyqojpqywc3u" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="3_7ghwt"]
 [ext_resource type="Texture2D" uid="uid://ccmnkyacpkffb" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/3.png" id="4_cdw3c"]

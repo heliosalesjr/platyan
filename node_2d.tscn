@@ -456,7 +456,7 @@ visible = false
 position = Vector2(228, 178)
 
 [node name="Water" parent="." instance=ExtResource("8_08dvk")]
-position = Vector2(2, 615)
+position = Vector2(466, 776)
 
 [connection signal="changed_direction" from="Pirate" to="Camera2D" method="_on_pirate_changed_direction"]
 [connection signal="landed" from="Pirate" to="Camera2D" method="_on_pirate_landed"]
